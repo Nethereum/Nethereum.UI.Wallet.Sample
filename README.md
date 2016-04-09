@@ -11,13 +11,15 @@ Work in progress.
 <img src="screenshots/AndroidHamburger.png" width="200" alt="Nethereum Android Phone Ethereum example">
 <img src="screenshots/w10Balance.png" width="400" alt="Nethereum UWP Windows 10 Desktop Ethereum example">
 
+Demo on the xbox: https://www.youtube.com/embed/WuRFmlcWFaA
+
 ### Done
 
 * Nethereum.Wallet generic interfaces, summary of balances, accounts, token registry.
 * Validated usage for common methods, contract, eth.
 * Generic MvxFormsShellPagePresenter for hambuger, slider navigation.
 * Generic UI
-* Tested on UWP (Windows 10, Windows 10 Phone) and Android. 
+* Tested on UWP (Windows 10, Windows 10 Phone), Android and Xbox
 
 ### Todo
 
@@ -26,3 +28,4 @@ Work in progress.
 * Registry of assets, sql lite storage
 * Screen configuration
 * Transactions storage and watch for registered tokens / eth.
+* Continue testing all the platforms (xbox developer mode is in preview mode at the moment)
