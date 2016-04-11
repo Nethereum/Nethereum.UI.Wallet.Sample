@@ -19,7 +19,8 @@ Demo on the xbox: https://www.youtube.com/embed/WuRFmlcWFaA
 * Validated usage for common methods, contract, eth.
 * Generic MvxFormsShellPagePresenter for hambuger, slider navigation.
 * Generic UI
-* Tested on UWP (Windows 10, Windows 10 Phone), Android and Xbox
+* Nethereum working and tests on UWP (Windows 10, Windows 10 Phone), Android and UWP Xbox
+ Note: Xbox mouse mode is not implemented yet for uwp.
 
 ### Todo
 
