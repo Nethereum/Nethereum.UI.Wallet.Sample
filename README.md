@@ -24,6 +24,7 @@ Demo on the xbox: https://www.youtube.com/embed/WuRFmlcWFaA
 ### Todo
 
 * iOS test.
+* Raspberry PI test
 * Transfer example.
 * Registry of assets, sql lite storage
 * Screen configuration
