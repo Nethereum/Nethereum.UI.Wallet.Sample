@@ -19,15 +19,15 @@ Demo on the xbox: https://www.youtube.com/embed/WuRFmlcWFaA
 * Validated usage for common methods, contract, eth.
 * Generic MvxFormsShellPagePresenter for hambuger, slider navigation.
 * Generic UI
-* Nethereum working and tests on UWP (Windows 10, Windows 10 Phone), Android and UWP Xbox
- Note: Xbox mouse mode is not implemented yet for uwp.
+* Nethereum working and tests on UWP (Windows 10, Windows 10 Phone, Xbox, Raspberry Pi 2), Android.
+ Note: Xbox mouse mode is not implemented yet for uwp in the current xbox dev preview release.
+Note: Pi is rather slow connecting to geth
 
 ### Todo
 
 * iOS test.
-* Raspberry PI test
 * Transfer example.
 * Registry of assets, sql lite storage
 * Screen configuration
 * Transactions storage and watch for registered tokens / eth.
-* Continue testing all the platforms (xbox developer mode is in preview mode at the moment)
+* Continue testing all the platforms 
