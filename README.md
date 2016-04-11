@@ -1,6 +1,6 @@
 # Nethereum.UI.Wallet.Sample
 
-Cross platform wallet example using Nethereum, Xamarin.Forms and MvvmCross.
+This is a cross platform wallet example using Nethereum, Xamarin.Forms and MvvmCross, targetting all main mobile platforms Android, iOS, Windows, Dektop (windows 10 uwp), IoT with the Raspberry PI and Xbox. 
 
 Work in progress.
 
