@@ -12,6 +12,7 @@ Work in progress.
 <img src="screenshots/w10Balance.png" width="400" alt="Nethereum UWP Windows 10 Desktop Ethereum example">
 
 Demo on the xbox: https://www.youtube.com/embed/WuRFmlcWFaA
+Demo on the Raspberry PI: https://www.youtube.com/watch?v=1j1zgHjManY (Note the data is cached on the demo, is very very slow retrieving the data)
 
 ### Done
 
