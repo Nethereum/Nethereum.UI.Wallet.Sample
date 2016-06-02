@@ -45,4 +45,4 @@ namespace Nethereum.UI.iOS
             }
         }
     }
-}
+

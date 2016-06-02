@@ -1,4 +1,5 @@
-﻿using MvvmCross.iOS.Views.Presenters;
+﻿using ImageCircle.Forms.Plugin.iOS;
+using MvvmCross.iOS.Views.Presenters;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
 using UIKit;
@@ -40,7 +41,7 @@ namespace Nethereum.UI.iOS
         protected override IMvxIosViewPresenter CreatePresenter()
         {
             Forms.Init();
-
+            ImageCircleRenderer.Init();
             var xamarinFormsApp = new MvxFormsApp();
 
             return new MvxFormsIosShellPagePresenter(Window, xamarinFormsApp);

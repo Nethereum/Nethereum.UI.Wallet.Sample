@@ -124,8 +124,8 @@
       <HintPath>..\..\packages\MvvmCross.Plugin.Messenger.4.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.Messenger.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Nethereum.Portable, Version=1.0.5937.16014, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Nethereum.Portable.1.0.0-rc1\lib\portable45-net45+win8+wpa81\Nethereum.Portable.dll</HintPath>
+    <Reference Include="Nethereum.Portable, Version=1.0.5993.32557, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nethereum.Portable.1.0.0-rc2\lib\portable45-net45+win8+wpa81\Nethereum.Portable.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

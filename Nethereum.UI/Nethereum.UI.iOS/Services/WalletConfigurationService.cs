@@ -11,9 +11,10 @@ namespace Nethereum.UI.UWP.Services
     public class WalletConfigurationService : IWalletConfigurationService
     {
 
+
         public WalletConfigurationService()
         {
-            this.ClientUrl = "http://localhost:8545";
+            this.ClientUrl = "http://192.168.2.22:8545";
             this.Client = new RpcClient(new Uri(ClientUrl));
         }
 
@@ -32,6 +33,11 @@ namespace Nethereum.UI.UWP.Services
         }
 
         public string ClientUrl { get; set; }
-        
+
+        public bool IsConfigured()
+        {
+            //Todo get info from storage
+            return true;
+        }
     }
 }
