@@ -55,16 +55,17 @@
       <HintPath>..\..\packages\Portable.BouncyCastle.1.8.1\lib\portable-net45+win8+wpa81+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Nethereum.Portable, Version=1.0.5937.16014, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Nethereum.Portable.1.0.0-rc1\lib\portable45-net45+win8+wpa81\Nethereum.Portable.dll</HintPath>
+    <Reference Include="Nethereum.Portable, Version=1.0.5993.32557, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nethereum.Portable.1.0.0-rc2\lib\portable45-net45+win8+wpa81\Nethereum.Portable.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1-beta1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
