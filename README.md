@@ -21,13 +21,11 @@ Demo on the Raspberry PI: https://www.youtube.com/watch?v=bGZhq9oW3Mo (The data 
 * Validated usage for common methods, contract, eth.
 * Generic MvxFormsShellPagePresenter for hambuger, slider navigation.
 * Generic UI
-* Nethereum working and tests on UWP (Windows 10, Windows 10 Phone, Xbox, Raspberry Pi 2), Android.
+* Nethereum working and tests on UWP (Windows 10, Windows 10 Phone, Xbox, Raspberry Pi 2), Android and iOS.
  Note: Xbox mouse mode is not implemented yet for uwp in the current xbox dev preview release.
 Note: Pi is rather slow connecting to geth
 
 ### Todo
-
-* iOS test.
 * Transfer example.
 * Registry of assets, sql lite storage
 * Screen configuration
