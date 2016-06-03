@@ -60,13 +60,13 @@ namespace Nethereum.Wallet.Services
 
                 foreach(var token in tokenRegistryService.GetRegisteredTokens())
                 {
-                    //var service = new Maker.ERC20Token.EthTokenService(web3, token.Address);
-                    //var accountToken = new AccountToken();
-                    //accountToken.Symbol = token.Symbol;
-                    //var wei = await service.GetBalanceOfAsync<BigInteger>(accountInfo.Address);
-                    //balance = (decimal)wei / (decimal)Math.Pow(10, token.NumberOfDecimalPlaces);
-                    //accountToken.Balance = balance;
-                    //accountInfo.AccountTokens.Add(accountToken);
+                    var service = new Maker.ERC20Token.EthTokenService(web3, token.Address);
+                    var accountToken = new AccountToken();
+                     accountToken.Symbol = token.Symbol;
+                     var wei = await service.GetBalanceOfAsync<BigInteger>(accountInfo.Address);
+                     balance = (decimal)wei / (decimal)Math.Pow(10, token.NumberOfDecimalPlaces);
+                    accountToken.Balance = balance;
+                    accountInfo.AccountTokens.Add(accountToken);
                 }
             }
             return accountsInfo;

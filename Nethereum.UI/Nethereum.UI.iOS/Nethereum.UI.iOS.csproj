@@ -94,6 +94,14 @@
     <Compile Include="Services\LocalizeService.cs" />
     <Compile Include="Services\WalletConfigurationService.cs" />
     <Compile Include="Setup.cs" />
+    <Content Include="Resources\about.png" />
+    <Content Include="Resources\blog.png" />
+    <Content Include="Resources\ethIcon.png" />
+    <Content Include="Resources\icon.png" />
+    <Content Include="Resources\icon_wb.png" />
+    <Content Include="Resources\makerIcon.png" />
+    <Content Include="Resources\refresh.png" />
+    <Content Include="Resources\slideout.png" />
     <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
@@ -195,9 +203,7 @@
       <Name>Nethereum.Wallet</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.0.46-pre3\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.0.46-pre3\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
