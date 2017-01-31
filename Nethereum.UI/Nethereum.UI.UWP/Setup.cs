@@ -1,10 +1,13 @@
-﻿using MvvmCross.Platform;
+﻿using System;
+using System.Diagnostics;
+using MvvmCross.Platform;
 using MvvmCross.Forms.Presenter.Core;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
 using Xamarin.Forms;
 using XamlControls = Windows.UI.Xaml.Controls;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Xaml;
 using MvvmCross.WindowsUWP.Platform;
 using MvvmCross.WindowsUWP.Views;
 using MvvmCross.Forms.Presenter.WindowsUWP;
@@ -32,8 +35,12 @@ namespace Nethereum.UI.UWP
             return new Core.App();
         }
 
+      
+
         protected override IMvxWindowsViewPresenter CreateViewPresenter(IMvxWindowsFrame rootFrame)
         {
+
+
             Forms.Init(_launchActivatedEventArgs);
 
             var xamarinFormsApp = new MvxFormsApp();

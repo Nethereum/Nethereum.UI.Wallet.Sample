@@ -20,6 +20,7 @@ namespace Nethereum.UI.Core
         public override void Initialize()
         {
            
+
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
@@ -30,10 +31,7 @@ namespace Nethereum.UI.Core
            .AsInterfaces()
            .RegisterAsLazySingleton();
 
-            if (Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.iOS)
-            {
-                Resources.AppResources.Culture = Mvx.Resolve<Services.ILocalizeService>().GetCurrentCultureInfo();
-            }
+           
 
             // Construct custom application start object
             Mvx.ConstructAndRegisterSingleton<IMvxAppStart, AppStart>();
@@ -45,6 +43,11 @@ namespace Nethereum.UI.Core
             // register the appstart object
             RegisterAppStart(appStart);
 
+         
+            //if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
+            //{
+            //    Resources.AppResources.Culture = Mvx.Resolve<Services.ILocalizeService>().GetCurrentCultureInfo();
+            //}
           
         }
     }

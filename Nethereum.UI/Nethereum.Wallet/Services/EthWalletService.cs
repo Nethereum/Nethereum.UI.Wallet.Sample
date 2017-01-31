@@ -32,19 +32,19 @@ namespace Nethereum.Wallet.Services
 
         public async Task<string[]> GetAccounts()
         {
-            try
-            {
-                var web3 = GetWeb3();
-              
-
-                var accounts = await web3.Eth.Accounts.SendRequestAsync();
-                return accounts;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            return new string[] {};
+            return configuration.GetAccounts();
+            //try
+            //{
+            //    var web3 = GetWeb3();
+            //    //This can look at a local store for account addresses
+            //    var accounts = await web3.Eth.Accounts.SendRequestAsync();
+            //    return accounts;
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex.Message);
+            //}
+            //return new string[] { };
         }
 
         public async Task<List<AccountInfo>> GetAccountsInfo()
@@ -54,19 +54,26 @@ namespace Nethereum.Wallet.Services
             var accountsInfo = accounts.Select(x => new AccountInfo() { Address = x }).ToList();
             foreach(var accountInfo in accountsInfo)
             {
-                var weiBalance = await web3.Eth.GetBalance.SendRequestAsync(accountInfo.Address);
-                var balance = (decimal)weiBalance.Value / (decimal)Math.Pow(10,18);
-                accountInfo.Eth.Balance = balance;
-
-                foreach(var token in tokenRegistryService.GetRegisteredTokens())
+                try
                 {
-                    var service = new Maker.ERC20Token.EthTokenService(web3, token.Address);
-                    var accountToken = new AccountToken();
-                     accountToken.Symbol = token.Symbol;
-                     var wei = await service.GetBalanceOfAsync<BigInteger>(accountInfo.Address);
-                     balance = (decimal)wei / (decimal)Math.Pow(10, token.NumberOfDecimalPlaces);
-                    accountToken.Balance = balance;
-                    accountInfo.AccountTokens.Add(accountToken);
+                    var weiBalance = await web3.Eth.GetBalance.SendRequestAsync(accountInfo.Address);
+                    var balance = (decimal) weiBalance.Value/(decimal) Math.Pow(10, 18);
+                    accountInfo.Eth.Balance = balance;
+
+                    foreach (var token in tokenRegistryService.GetRegisteredTokens())
+                    {
+                        var service = new StandardTokenEIP20.StandardTokenService(web3, token.Address);
+                        var accountToken = new AccountToken();
+                        accountToken.Symbol = token.Symbol;
+                        var wei = await service.GetBalanceOfAsync<BigInteger>(accountInfo.Address);
+                        balance = (decimal) wei/(decimal) Math.Pow(10, token.NumberOfDecimalPlaces);
+                        accountToken.Balance = balance;
+                        accountInfo.AccountTokens.Add(accountToken);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
                 }
             }
             return accountsInfo;

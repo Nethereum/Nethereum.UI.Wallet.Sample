@@ -24,5 +24,7 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <uap:Capability Name="sharedUserCertificates" />
   </Capabilities>
 </Package>

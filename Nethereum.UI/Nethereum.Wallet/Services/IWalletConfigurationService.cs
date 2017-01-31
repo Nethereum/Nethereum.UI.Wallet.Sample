@@ -9,5 +9,7 @@ namespace Nethereum.Wallet.Services
         IClient Client { get; set; }
 
         bool IsConfigured();
+
+        string[] GetAccounts();
     }
 }

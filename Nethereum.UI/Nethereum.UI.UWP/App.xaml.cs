@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -28,9 +29,26 @@ namespace Nethereum.UI.UWP
         /// </summary>
         public App()
         {
+            this.UnhandledException += App_UnhandledException;
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
+
+        private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+  
+            e.Handled = true;
+#if !DEBUG
+                           // log
+#else
+                if (Debugger.IsAttached)
+                {
+                    Debug.WriteLine(e.Message);
+                    Debugger.Break();
+                }
+#endif
+        }
+    
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

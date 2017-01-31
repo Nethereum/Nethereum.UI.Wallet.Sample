@@ -51,18 +51,34 @@
     <Compile Include="Services\TokenRegistryService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Portable.BouncyCastle.1.8.1\lib\portable-net45+win8+wpa81+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\crypto.dll</HintPath>
+      <HintPath>..\..\packages\Portable.BouncyCastle.1.8.1.1\lib\portable-net4+sl5+wp8+win8+wpa81\crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EdjCase.JsonRpc.Client, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EdjCase.JsonRpc.Client.1.0.5\lib\portable45-net45+win8+wpa81\EdjCase.JsonRpc.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EdjCase.JsonRpc.Core, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EdjCase.JsonRpc.Core.1.0.4\lib\portable45-net45+win8+wpa81\EdjCase.JsonRpc.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Portable, Version=1.0.6239.26382, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nethereum.Portable.1.0.5\lib\portable45-net45+win8+wpa81\Nethereum.Portable.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1-beta1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

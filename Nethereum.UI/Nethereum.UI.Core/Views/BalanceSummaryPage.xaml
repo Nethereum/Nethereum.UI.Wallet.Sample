@@ -9,7 +9,8 @@
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">    
     <ListView ItemsSource="{Binding TokensBalanceSummary, Mode=TwoWay}" SelectedItem="{Binding SelectedToken}"
                CachingStrategy="RecycleElement"
-               HasUnevenRows="True"
+               HasUnevenRows="False"
+               RowHeight="40"
                IsPullToRefreshEnabled="True"
                RefreshCommand="{Binding LoadItemsCommand}"
                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -18,29 +19,7 @@
               >
         <ListView.ItemTemplate>
           <DataTemplate>
-            
-          <ViewCell>
-            <Grid Padding="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-              <StackLayout Grid.Column="1"
-                           Spacing="4"
-                           VerticalOptions="Center">
-                <Label Text="{Binding Symbol}" FontSize="Small" LineBreakMode="WordWrap"/>
-                <Label Text="{Binding Balance}" FontSize="Small" LineBreakMode="WordWrap"/>
-              </StackLayout>
-
-                <abstractions:CircleImage HeightRequest="80"
-                     WidthRequest="80"
-                     Source="{Binding TokenImgUrl}"
-                     Aspect="AspectFill"
-                     BackgroundColor="White"                    
-                     VerticalOptions="Center"/>
-
-            </Grid>
-          </ViewCell>
+            <ImageCell Height="40" ImageSource="{Binding TokenImgUrl}" Text="{Binding Symbol}" Detail="{Binding Balance} "/>
                 
           </DataTemplate>
         </ListView.ItemTemplate>

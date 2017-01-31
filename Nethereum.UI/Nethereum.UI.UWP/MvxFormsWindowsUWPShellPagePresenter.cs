@@ -23,6 +23,7 @@ namespace Nethereum.UI.UWP
         public MvxFormsWindowsUWPShellPagePresenter(IMvxWindowsFrame rootFrame, Application mvxFormsApp)
             : base(mvxFormsApp)
         {
+            
             _rootFrame = rootFrame;
         }
 
