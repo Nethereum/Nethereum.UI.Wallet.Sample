@@ -10,7 +10,7 @@
     <ListView ItemsSource="{Binding TokensBalanceSummary, Mode=TwoWay}" SelectedItem="{Binding SelectedToken}"
                CachingStrategy="RecycleElement"
                HasUnevenRows="False"
-               RowHeight="40"
+               RowHeight="80"
                IsPullToRefreshEnabled="True"
                RefreshCommand="{Binding LoadItemsCommand}"
                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -19,7 +19,7 @@
               >
         <ListView.ItemTemplate>
           <DataTemplate>
-            <ImageCell Height="40" ImageSource="{Binding TokenImgUrl}" Text="{Binding Symbol}" Detail="{Binding Balance} "/>
+            <ImageCell Height="80" ImageSource="{Binding TokenImgUrl}" Text="{Binding Symbol}" Detail="{Binding Balance} "/>
                 
           </DataTemplate>
         </ListView.ItemTemplate>

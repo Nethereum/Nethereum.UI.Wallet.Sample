@@ -31,7 +31,11 @@ namespace Nethereum.UI.Core
            .AsInterfaces()
            .RegisterAsLazySingleton();
 
-           
+            //if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
+            //{
+            //    Resources.AppResources.Culture = Mvx.Resolve<Services.ILocalizeService>().GetCurrentCultureInfo();
+            //}
+
 
             // Construct custom application start object
             Mvx.ConstructAndRegisterSingleton<IMvxAppStart, AppStart>();
@@ -44,10 +48,7 @@ namespace Nethereum.UI.Core
             RegisterAppStart(appStart);
 
          
-            //if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
-            //{
-            //    Resources.AppResources.Culture = Mvx.Resolve<Services.ILocalizeService>().GetCurrentCultureInfo();
-            //}
+            
           
         }
     }
