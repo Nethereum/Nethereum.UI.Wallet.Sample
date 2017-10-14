@@ -11,7 +11,8 @@ using Android.Views;
 using Android.Widget;
 using Nethereum.UI.Core.Views;
 using MvvmCross.Droid.Views;
-using MvvmCross.Forms.Presenter.Core;
+using MvvmCross.Forms.Presenters;
+using MvvmCross.Forms.Core;
 
 namespace Nethereum.UI.Droid
 {
@@ -24,7 +25,7 @@ namespace Nethereum.UI.Droid
             {
             }
 
-            public MvxFormsShellDroidPagePresenter(MvxFormsApp mvxFormsApp)
+            public MvxFormsShellDroidPagePresenter(MvxFormsApplication mvxFormsApp)
                 : base(mvxFormsApp)
             {
             }

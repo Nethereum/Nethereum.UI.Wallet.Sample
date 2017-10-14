@@ -56,15 +56,17 @@ namespace Nethereum.Wallet.Services
             {
                 try
                 {
-                    var weiBalance = await web3.Eth.GetBalance.SendRequestAsync(accountInfo.Address);
+                    var weiBalance = await web3.Eth.GetBalance.SendRequestAsync(accountInfo.Address).ConfigureAwait(false);
                     var balance = (decimal) weiBalance.Value/(decimal) Math.Pow(10, 18);
                     accountInfo.Eth.Balance = balance;
 
                     foreach (var token in tokenRegistryService.GetRegisteredTokens())
                     {
                         var service = new StandardTokenEIP20.StandardTokenService(web3, token.Address);
-                        var accountToken = new AccountToken();
-                        accountToken.Symbol = token.Symbol;
+                        var accountToken = new AccountToken
+                        {
+                            Symbol = token.Symbol
+                        };
                         var wei = await service.GetBalanceOfAsync<BigInteger>(accountInfo.Address);
                         balance = (decimal) wei/(decimal) Math.Pow(10, token.NumberOfDecimalPlaces);
                         accountToken.Balance = balance;

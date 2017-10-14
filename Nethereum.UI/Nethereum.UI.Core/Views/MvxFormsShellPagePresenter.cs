@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Forms.Presenter.Core;
+using MvvmCross.Forms;
+using MvvmCross.Forms.Views;
+using MvvmCross.Forms.Presenters;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
 using Nethereum.UI.Core.Messages;
@@ -57,6 +59,7 @@ namespace Nethereum.UI.Core.Views
 
         public override void Show(MvxViewModelRequest request)
         {
+           
             if (TryShowPage(request))
                 return;
                 
@@ -138,7 +141,7 @@ namespace Nethereum.UI.Core.Views
 
         protected Page ResolvePage(Type pageViewModelType)
         {
-            var request = new MvxViewModelRequest(pageViewModelType, null, null, null);
+            var request = new MvxViewModelRequest(pageViewModelType, null, null);
             return ResolvePage(request);
         }
 

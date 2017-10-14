@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Diagnostics;
 using MvvmCross.Platform;
-using MvvmCross.Forms.Presenter.Core;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
 using Xamarin.Forms;
 using XamlControls = Windows.UI.Xaml.Controls;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
-using MvvmCross.WindowsUWP.Platform;
-using MvvmCross.WindowsUWP.Views;
-using MvvmCross.Forms.Presenter.WindowsUWP;
+using MvvmCross.Forms.Presenters;
 using Nethereum.Wallet.Services;
 using Nethereum.UI.UWP.Services;
+using MvvmCross.Forms.Core;
+using MvvmCross.Uwp.Platform;
+using MvvmCross.Uwp.Views;
 
 namespace Nethereum.UI.UWP
 {
@@ -24,6 +24,7 @@ namespace Nethereum.UI.UWP
         {
             _launchActivatedEventArgs = e;
         }
+
         protected override void InitializeIoC()
         {
             base.InitializeIoC();
@@ -43,7 +44,7 @@ namespace Nethereum.UI.UWP
 
             Forms.Init(_launchActivatedEventArgs);
 
-            var xamarinFormsApp = new MvxFormsApp();
+            var xamarinFormsApp = new MvxFormsApplication();
             var presenter = new MvxFormsWindowsUWPShellPagePresenter(rootFrame, xamarinFormsApp);
             Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
 

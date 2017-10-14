@@ -1,14 +1,14 @@
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
 using Android.OS;
-using MvvmCross.Forms.Presenter.Core;
+using MvvmCross.Forms.Presenters;
 using MvvmCross.Platform;
 using MvvmCross.Core.Views;
-using MvvmCross.Forms.Presenter.Droid;
 using MvvmCross.Core.ViewModels;
 using Android.App;
 using Android.Content.PM;
 using ImageCircle.Forms.Plugin.Droid;
+using MvvmCross.Forms.Core;
 
 namespace Nethereum.UI.Droid
 {
@@ -25,13 +25,14 @@ namespace Nethereum.UI.Droid
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);
-            var mvxFormsApp = new MvxFormsApp();
+            var mvxFormsApp = new MvxFormsApplication();
             LoadApplication(mvxFormsApp);
 
             var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsShellDroidPagePresenter;
             presenter.MvxFormsApp = mvxFormsApp;
 
-            Mvx.Resolve<IMvxAppStart>().Start();
+            var start = Mvx.Resolve<IMvxAppStart>();
+            start.Start();
         }
     }
 }

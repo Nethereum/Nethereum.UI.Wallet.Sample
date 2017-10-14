@@ -5,11 +5,10 @@ using MvvmCross.Core.Views;
 using MvvmCross.iOS.Platform;
 using UIKit;
 using Xamarin.Forms;
-using MvvmCross.Forms.Presenter.iOS;
-using MvvmCross.Forms.Presenter.Core;
 using MvvmCross.Platform;
 using Nethereum.Wallet.Services;
 using Nethereum.UI.UWP.Services;
+using MvvmCross.Forms.Core;
 
 namespace Nethereum.UI.iOS
 {
@@ -43,7 +42,7 @@ namespace Nethereum.UI.iOS
         {
             Forms.Init();
             ImageCircleRenderer.Init();
-            var xamarinFormsApp = new MvxFormsApp();
+            var xamarinFormsApp = new MvxFormsApplication();
 
            var presenter = new MvxFormsIosShellPagePresenter(Window, xamarinFormsApp);
            Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);

@@ -56,7 +56,7 @@ namespace Nethereum.UI.Core.ViewModels
         /// </summary>
         public ICommand LoadItemsCommand
         {
-            get { return new MvxCommand(async () => await LoadData()); }
+            get { return new MvxAsyncCommand(async () => await LoadData()); }
         }
 
 

@@ -4,7 +4,8 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
-using MvvmCross.Forms.Presenter.Core;
+using MvvmCross.Forms;
+using MvvmCross.Forms.Views;
 using MvvmCross.Platform;
 using Nethereum.UI.Core.Messages;
 using Nethereum.UI.Core.ViewModels;
@@ -30,7 +31,6 @@ namespace Nethereum.UI.Core.Views
             InvalidateMeasure();
 
         }
-        
 
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MvvmCross.Forms.Presenter.Core;
 using MvvmCross.iOS.Views.Presenters;
 using Nethereum.UI.Core.Views;
 using UIKit;

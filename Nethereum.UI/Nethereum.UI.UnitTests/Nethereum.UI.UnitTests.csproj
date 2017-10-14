@@ -70,12 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nethereum.UI.Core\Nethereum.UI.Core.csproj">
-      <Project>{74043e51-ef7b-4ce1-af3f-7612ed1d05b6}</Project>
-      <Name>XamForms.MvxTemplate.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
