@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MvvmCross.Core.ViewModels;
+using MvvmCross.Commands;
 using Nethereum.UI.Core.Services;
 using Nethereum.Wallet.Services;
 using Xamarin.Forms;
@@ -50,25 +50,9 @@ namespace Nethereum.UI.Core.ViewModels
             {
                 selectedToken = value;
                 RaisePropertyChanged(() => SelectedToken);
-
-                // ShowSelectedAccountCommand.Execute(null);
             }
         }
 
-
-        //public ICommand ShowSelectedAccountCommand
-        //{
-        //    get
-        //    {
-        //        return null;
-        //        ////return new MvxCommand(() => ShowViewModel<DetailedMovieViewModel>(new { movieId = SelectedAccount.Id }),
-        //        ////    () => SelectedAccount != null);
-        //    }
-        //}
-
-        /// <summary>
-        ///     Command to load/refresh items
-        /// </summary>
         public ICommand LoadItemsCommand
         {
             get { return new MvxAsyncCommand(LoadData); }

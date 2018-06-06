@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MvvmCross.Core.ViewModels;
+using MvvmCross.Commands;
 using Nethereum.UI.Core.Services;
 using Nethereum.UI.Core.Views;
 using Nethereum.Wallet.Services;

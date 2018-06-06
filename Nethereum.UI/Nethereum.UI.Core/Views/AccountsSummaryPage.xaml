@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Nethereum.UI.Core.Views.AccountsSummaryPage"
-             xmlns:res="clr-namespace:Nethereum.UI.Core.Resources;assembly=Nethereum.UI.Core"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             Title="{Binding Title}">
-  
-  <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">    
+ <views:MvxContentPage x:TypeArguments="viewModels:AccountsSummaryViewModel"  
+                          xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                          xmlns="http://xamarin.com/schemas/2014/forms" 
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:viewModels="clr-namespace:Nethereum.UI.Core.ViewModels;assembly=Nethereum.UI.Core"
+                          xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+                          x:Class="Nethereum.UI.Core.Views.AccountsSummaryPage"
+                          Title="{Binding Title}" >
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">    
     <ListView ItemsSource="{Binding AccountsSummary, Mode=TwoWay}" SelectedItem="{Binding SelectedAccount}"
                CachingStrategy="RecycleElement"
                HasUnevenRows="False"
@@ -32,4 +33,4 @@
       <Label Text="Loading Accounts..." HorizontalOptions="Center" TextColor="White"/>
     </StackLayout>
   </AbsoluteLayout>
-</ContentPage>
+</views:MvxContentPage>

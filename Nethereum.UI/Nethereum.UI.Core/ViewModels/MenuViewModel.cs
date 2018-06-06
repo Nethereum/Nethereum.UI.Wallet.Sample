@@ -1,27 +1,30 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Plugins.Messenger;
-using Nethereum.UI.Core.Messages;
+using MvvmCross.Commands;
+using MvvmCross.Navigation;
+using MvvmCross.Plugin.Messenger;
 using Nethereum.UI.Core.Model;
 using Nethereum.UI.Core.Services;
+using Xamarin.Forms;
 
 namespace Nethereum.UI.Core.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
         private readonly IHomeMenuService homeMenuService;
+        private readonly IMvxNavigationService navigationService;
 
         private List<ShellMenuItem> menuItems;
         private readonly IMvxMessenger messenger;
 
         private ShellMenuItem selectedMenuItem;
+    
 
-        public MenuViewModel(IMvxMessenger messenger, IHomeMenuService homeMenuService)
+        public MenuViewModel(IMvxMessenger messenger, IHomeMenuService homeMenuService, IMvxNavigationService navigationService)
         {
             this.messenger = messenger;
             this.homeMenuService = homeMenuService;
-           
+            this.navigationService = navigationService;
         }
 
         public List<ShellMenuItem> MenuItems
@@ -39,19 +42,28 @@ namespace Nethereum.UI.Core.ViewModels
             get { return selectedMenuItem; }
             set
             {
-                selectedMenuItem = value;
-                RaisePropertyChanged(() => SelectedMenuItem);
+                if (selectedMenuItem != value)
+                {
+                    selectedMenuItem = value;
+                    RaisePropertyChanged(() => SelectedMenuItem);
 
-                NavigateToSelectedMenuCommand.Execute(null);
+                    NavigateToSelectedMenuCommand.Execute(null);
+                }
             }
         }
 
+       
 
         public ICommand NavigateToSelectedMenuCommand
         {
             get
             {
-                return new MvxCommand(() => { messenger.Publish(new ShellMenuSelectedMessage(this, SelectedMenuItem)); },
+                return new MvxAsyncCommand(async () =>
+                    {
+                        var vmType = SelectedMenuItem.PageViewModelType;
+                        await navigationService.Navigate(vmType);
+
+                    },
                     () => SelectedMenuItem != null);
             }
         }

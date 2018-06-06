@@ -1,45 +1,47 @@
-﻿using MvvmCross.Core.ViewModels;
-using Nethereum.UI.Core.ViewModels;
+﻿using Nethereum.UI.Core.ViewModels;
 using Nethereum.Wallet.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
 
 namespace Nethereum.UI.Core
 {
-    /// <summary>
-    /// A class that implements the IMvxAppStart interface and can be used to customise
-    /// the way an application is initialised
-    /// </summary>
-    public class AppStart : MvxNavigatingObject, IMvxAppStart
+    public class AppStart : MvxAppStart
     {
-        /// <summary>
-        /// The login service.
-        /// </summary>
+ 
         private readonly IWalletConfigurationService walletConfiguration;
+        private readonly IMvxNavigationService navigationService;
 
-        public AppStart(IWalletConfigurationService walletConfiguration)
+        public AppStart(IMvxApplication application, IMvxNavigationService navigationService, IWalletConfigurationService walletConfiguration) : base(application)
         {
             this.walletConfiguration = walletConfiguration;
+            this.navigationService = navigationService;
+
         }
 
-        /// <summary>
-        /// Start is called on startup of the app
-        /// Hint contains information in case the app is started with extra parameters
-        /// </summary>
-        public void Start(object hint = null)
+        protected override void ApplicationStartup(object hint = null)
+        {
+            base.ApplicationStartup(hint);
+            NavigateToFirstViewModel(hint);
+
+        }
+
+        protected void NavigateToFirstViewModel(object hint = null)
         {
             if (walletConfiguration.IsConfigured())
             {
-                ShowViewModel<ShellViewModel>();
+                navigationService.Navigate<MenuViewModel>();
+                navigationService.Navigate<BalanceSummaryViewModel>();
+
             }
             else
             {
-                //ShowViewModel<WalletConfigurationViewModel>();
+                // NavigationService.Navigate<WalletConfigurationViewModel>();
             }
         }
-
     }
 }
