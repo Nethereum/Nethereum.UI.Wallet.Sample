@@ -67,11 +67,6 @@ namespace Nethereum.UI.Droid
             command.CanExecuteChanged += (s, e) => { if (command.CanExecute(null)) command.Execute(null); };
         }
 
-        public void Include(MvvmCross.Platform.IoC.MvxPropertyInjector injector)
-        {
-            injector = new MvvmCross.Platform.IoC.MvxPropertyInjector();
-        }
-
         public void Include(System.ComponentModel.INotifyPropertyChanged changed)
         {
             changed.PropertyChanged += (sender, e) =>

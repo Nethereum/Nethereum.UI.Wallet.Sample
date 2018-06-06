@@ -3,6 +3,7 @@ using System.Reflection;
 using MvvmCross;
 using MvvmCross.IoC;
 using MvvmCross.ViewModels;
+using Nethereum.UI.Core.ViewModels;
 using Nethereum.UI.Core.Views;
 
 namespace Nethereum.UI.Core
@@ -13,7 +14,6 @@ namespace Nethereum.UI.Core
         public override void Initialize()
         {
            
-
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
@@ -29,16 +29,9 @@ namespace Nethereum.UI.Core
             //    Resources.AppResources.Culture = Mvx.Resolve<Services.ILocalizeService>().GetCurrentCultureInfo();
             //}
 
-
-            // Construct custom application start object
-            Mvx.ConstructAndRegisterSingleton<IMvxAppStart, AppStart>();
-            
-
-            // request a reference to the constructed appstart object 
-            var appStart = Mvx.Resolve<IMvxAppStart>();
-
             // register the appstart object
-            RegisterAppStart(appStart);
+            RegisterCustomAppStart<AppStart<RootViewModel>>();
+
 
         }
     }

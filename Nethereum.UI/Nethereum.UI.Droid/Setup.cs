@@ -1,21 +1,16 @@
 using Android.Content;
-using MvvmCross.Platform;
-using MvvmCross.Droid.Platform;
-using MvvmCross.Droid.Views;
-using MvvmCross.Forms.Presenters;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
+using MvvmCross;
+using MvvmCross.Forms.Platforms.Android.Core;
+using MvvmCross.Platforms.Android.Presenters;
+using MvvmCross.Presenters;
+using Nethereum.UI.Core;
 using Nethereum.Wallet.Services;
 using Nethereum.UI.Droid.Services;
 
 namespace Nethereum.UI.Droid
 {
-    public class Setup : MvxAndroidSetup
+    public class Setup : MvxFormsAndroidSetup<Core.App, FormsApp>
     {
-        public Setup(Context applicationContext)
-            : base(applicationContext)
-        {
-        }
         protected override void InitializeIoC()
         {
             base.InitializeIoC();
@@ -29,17 +24,6 @@ namespace Nethereum.UI.Droid
 
             Mvx.RegisterSingleton<Core.Services.ILocalizeService>(new Services.LocalizeService());
         }
-        protected override IMvxApplication CreateApp()
-        {
-            return new Core.App();
-        }
-
-        protected override IMvxAndroidViewPresenter CreateViewPresenter()
-        {
-            var presenter = new MvxFormsShellDroidPagePresenter();
-            Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
-
-            return presenter;
-        }
+       
     }
 }

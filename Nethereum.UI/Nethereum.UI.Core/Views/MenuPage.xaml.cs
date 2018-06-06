@@ -17,6 +17,7 @@ namespace Nethereum.UI.Core.Views
         {
             
             InitializeComponent();
+           
             if (!App.IsWindows10)
             {
                 BackgroundColor = Color.FromHex("#03A9F4");
