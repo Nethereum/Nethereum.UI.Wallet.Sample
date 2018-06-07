@@ -319,6 +319,11 @@
       <Name>Nethereum.Wallet</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\drawable\plus.png" />
+    <Content Include="Resources\drawable\refresh.png" />
+    <AndroidResource Include="Resources\drawable\save.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

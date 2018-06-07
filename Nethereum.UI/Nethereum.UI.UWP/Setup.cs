@@ -13,7 +13,7 @@ namespace Nethereum.UI.UWP
         {
             base.InitializeIoC();
             Nethereum.UI.Core.App.IsWindows10 = true;
-            Mvx.RegisterSingleton<IWalletConfigurationService>(new WalletConfigurationService());
+            //Mvx.RegisterSingleton<IWalletConfigurationService>(new WalletConfigurationService());
 
         }
     }

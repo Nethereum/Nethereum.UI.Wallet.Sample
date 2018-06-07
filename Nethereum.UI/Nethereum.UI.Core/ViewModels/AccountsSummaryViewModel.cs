@@ -50,6 +50,10 @@ namespace Nethereum.UI.Core.ViewModels
             }
         }
 
+        public ICommand RefreshItemsCommand
+        {
+            get { return new MvxAsyncCommand(async () => await LoadData(true)); }
+        }
 
         /// <summary>
         ///     Command to load/refresh items
@@ -79,7 +83,7 @@ namespace Nethereum.UI.Core.ViewModels
             base.Start();
         }
 
-        private async Task LoadData()
+        private async Task LoadData(bool forceRefresh = false)
         {
             if (IsBusy)
                 return;
@@ -88,7 +92,7 @@ namespace Nethereum.UI.Core.ViewModels
             var error = false;
             try
             {
-                var walletSummary = await walletService.GetWalletSummary();
+                var walletSummary = await walletService.GetWalletSummary(forceRefresh);
                 AccountsSummary.Clear();
                 foreach (var accountSummary in accountSummaryViewModelMapperService.Map(walletSummary.AccountsInfo))
                 {

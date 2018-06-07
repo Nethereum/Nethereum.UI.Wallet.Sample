@@ -55,17 +55,26 @@ namespace Nethereum.UI.Core.ViewModels
 
         public ICommand LoadItemsCommand
         {
-            get { return new MvxAsyncCommand(LoadData); }
+            get { return new MvxAsyncCommand(() => LoadData()); }
+        }
+
+        public ICommand RefreshItemsCommand
+        {
+            get { return new MvxAsyncCommand(() => LoadData(true)); }
         }
 
         public override async void Start()
         {
-            await LoadData();
+            if (TokensBalanceSummary == null || TokensBalanceSummary.Count == 0)
+            {
+                await LoadData();
+            }
+
             base.Start();
         }
 
 
-        private async Task LoadData()
+        private async Task LoadData(bool forceRefresh = false)
         {
             if (IsBusy)
                 return;
@@ -74,7 +83,7 @@ namespace Nethereum.UI.Core.ViewModels
             var error = false;
             try
             {
-                var walletSummary = await walletService.GetWalletSummary();
+                var walletSummary = await walletService.GetWalletSummary(forceRefresh);
                 TokensBalanceSummary.Clear();
                 foreach (var accountSummary in accountTokenViewModelMapperService.Map(walletSummary.EthBalanceSummary,
                 walletSummary.TokenBalanceSummary))

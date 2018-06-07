@@ -6,10 +6,6 @@ namespace Nethereum.Wallet.Services
     {
         string ClientUrl { get; set; }
 
-        IClient Client { get; set; }
-
         bool IsConfigured();
-
-        string[] GetAccounts();
     }
 }

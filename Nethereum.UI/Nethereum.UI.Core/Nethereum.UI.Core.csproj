@@ -17,12 +17,19 @@
     </PackageReference>
     <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.0.1" />
     <PackageReference Include="Nethereum.StandardTokenEIP20" Version="2.5.1" />
+    <PackageReference Include="Refractored.FloatingActionButtonForms" Version="2.1.0" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.530893" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Nethereum.Wallet\Nethereum.Wallet.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\TokenEntryPage.xaml.cs">
+      <DependentUpon>TokenEntryPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

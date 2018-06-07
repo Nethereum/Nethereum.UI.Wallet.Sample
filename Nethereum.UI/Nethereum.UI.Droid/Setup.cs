@@ -14,7 +14,7 @@ namespace Nethereum.UI.Droid
         protected override void InitializeIoC()
         {
             base.InitializeIoC();
-            Mvx.RegisterSingleton<IWalletConfigurationService>(new WalletConfigurationService());
+           // Mvx.RegisterSingleton<IWalletConfigurationService>(new WalletConfigurationService());
 
         }
 

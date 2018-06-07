@@ -1,3 +1,7 @@
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using Nethereum.Wallet.Model;
+
 namespace Nethereum.UI.Core.ViewModels
 {
     public class AccountTokenViewModel: BaseViewModel
@@ -50,6 +54,6 @@ namespace Nethereum.UI.Core.ViewModels
 
         private string tokenImgUrl;
 
-
+       
     }
 }
