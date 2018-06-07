@@ -9,7 +9,7 @@ namespace Nethereum.Wallet.Services
         Task<WalletSummary> GetWalletSummary(bool forceRefresh = false);
         Task<string[]> GetAccounts();
 
-        Task<AccountInfo> GetAccountInfo(string accountAddress);
+        Task<AccountInfo> GetAccountInfo(string accountAddress, bool forceRefresh= false);
 
         Task<List<AccountInfo>> GetAccountsInfo(bool forceRefresh = false);
 

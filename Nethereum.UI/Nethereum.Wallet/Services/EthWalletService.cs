@@ -26,9 +26,10 @@ namespace Nethereum.Wallet.Services
             this.tokenRegistryService = tokenRegistryService;
             this.accountRegistryService = accountRegistryService;
         }
-        public async Task<AccountInfo> GetAccountInfo(string accountAddress)
+        public async Task<AccountInfo> GetAccountInfo(string accountAddress, bool forceRefresh= false)
         {
-            return null;
+            var accountInfo = await GetAccountsInfo(forceRefresh);
+            return accountInfo.FirstOrDefault(x => x.Address.ToLower() == accountAddress.ToLower());
         }
 
         public async Task<WalletSummary> GetWalletSummary(bool forceRefresh = false)

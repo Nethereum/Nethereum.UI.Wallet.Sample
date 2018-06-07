@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using Nethereum.UI.Core.Services;
 using Nethereum.UI.Core.Views;
 using Nethereum.Wallet.Services;
@@ -12,6 +13,7 @@ namespace Nethereum.UI.Core.ViewModels
     public class AccountsSummaryViewModel : BaseViewModel
     {
         private readonly IAccountSummaryViewModelMapperService accountSummaryViewModelMapperService;
+        private readonly IMvxNavigationService _navigationService;
         private readonly IEthWalletService walletService;
 
         private ObservableCollection<AccountSummaryViewModel> accountsSummary;
@@ -19,10 +21,12 @@ namespace Nethereum.UI.Core.ViewModels
         private AccountSummaryViewModel selectedAccount;
 
         public AccountsSummaryViewModel(IEthWalletService walletService,
-            IAccountSummaryViewModelMapperService accountSummaryViewModelMapperService)
+            IAccountSummaryViewModelMapperService accountSummaryViewModelMapperService,
+            IMvxNavigationService navigationService)
         {
             this.walletService = walletService;
             this.accountSummaryViewModelMapperService = accountSummaryViewModelMapperService;
+            _navigationService = navigationService;
             AccountsSummary = new ObservableCollection<AccountSummaryViewModel>();
             Title = "Accounts";
             Icon = "blog.png";
@@ -45,8 +49,8 @@ namespace Nethereum.UI.Core.ViewModels
             {
                 selectedAccount = value;
                 RaisePropertyChanged(() => SelectedAccount);
-
-                //ShowSelectedAccountCommand.Execute(null);
+                if(selectedAccount != null)
+                ShowSelectedAccountCommand.Execute(null);
             }
         }
 
@@ -55,26 +59,20 @@ namespace Nethereum.UI.Core.ViewModels
             get { return new MvxAsyncCommand(async () => await LoadData(true)); }
         }
 
-        /// <summary>
-        ///     Command to load/refresh items
-        /// </summary>
         public ICommand LoadItemsCommand
         {
             get { return new MvxAsyncCommand(async () => await LoadData()); }
         }
 
 
-        //public ICommand ShowSelectedAccountCommand
-        //{
-        //    get
-        //    {
-        //        return new MvxCommand(() => );
+        public ICommand ShowSelectedAccountCommand
+        {
+            get
+            {
+                return new MvxAsyncCommand(async() => await _navigationService.Navigate<AccountBalanceSummaryViewModel, string>(SelectedAccount.Address));
 
-        //        //ShowViewModel<AboutViewModel>());
-        //        ////return new MvxCommand(() => ShowViewModel<DetailedMovieViewModel>(new { movieId = SelectedAccount.Id }),
-        //        ////    () => SelectedAccount != null);
-        //    }
-        //}
+            }
+        }
 
 
         public override async void Start()

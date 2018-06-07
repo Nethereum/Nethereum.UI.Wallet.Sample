@@ -18,6 +18,7 @@
                HasUnevenRows="False"
                RowHeight="80"
                IsPullToRefreshEnabled="True"
+               
                RefreshCommand="{Binding RefreshItemsCommand}"
                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                AbsoluteLayout.LayoutFlags="All"
