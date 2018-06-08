@@ -28,13 +28,13 @@ namespace Nethereum.Wallet.Services
         }
         public async Task<AccountInfo> GetAccountInfo(string accountAddress, bool forceRefresh= false)
         {
-            var accountInfo = await GetAccountsInfo(forceRefresh);
+            var accountInfo = await GetAllAccountsInfo(forceRefresh);
             return accountInfo.FirstOrDefault(x => x.Address.ToLower() == accountAddress.ToLower());
         }
 
         public async Task<WalletSummary> GetWalletSummary(bool forceRefresh = false)
         {
-            var accounstInfo = await GetAccountsInfo(forceRefresh);
+            var accounstInfo = await GetAllAccountsInfo(forceRefresh);
             return new WalletSummary(accounstInfo);            
         }
 
@@ -43,37 +43,47 @@ namespace Nethereum.Wallet.Services
             return accountRegistryService.Accounts.ToArray();
         }
 
+        public async Task<decimal> GetTokenBalance(ContractToken token, string accountAddress)
+        {
+            var service = new StandardTokenEIP20.StandardTokenService(GetWeb3(), token.Address);
+            var wei = await service.GetBalanceOfAsync<BigInteger>(accountAddress).ConfigureAwait(false);
+            return Web3.Web3.Convert.FromWei(wei, token.NumberOfDecimalPlaces);
+        }
+
+        public async Task<decimal> GetEthBalance(string accountAddress)
+        {
+            var web3 = GetWeb3();
+            var weiBalance = await web3.Eth.GetBalance.SendRequestAsync(accountAddress).ConfigureAwait(false);
+            return Web3.Web3.Convert.FromWei(weiBalance);
+        }
+
         public void InvalidateCache()
         {
             lock (lockingObject)
             {
-                AccountInfoInMemoryCache = null;
+                AccountsInfoInMemoryCache = null;
             }
         }
 
-        public async Task<List<AccountInfo>> RefreshAccountInfo()
+        public async Task<List<AccountInfo>> RefreshAllAccountsInfo()
         {
-            var web3 = GetWeb3();
+            
             var accounts = await GetAccounts();
             var accountsInfo = accounts.Select(x => new AccountInfo() { Address = x }).ToList();
             foreach (var accountInfo in accountsInfo)
             {
                 try
                 {
-                    var weiBalance = await web3.Eth.GetBalance.SendRequestAsync(accountInfo.Address).ConfigureAwait(false);
-                    var balance = (decimal)weiBalance.Value / (decimal)Math.Pow(10, 18);
-                    accountInfo.Eth.Balance = balance;
+                    accountInfo.Eth.Balance = await GetEthBalance(accountInfo.Address);
 
                     foreach (var token in tokenRegistryService.GetRegisteredTokens())
                     {
-                        var service = new StandardTokenEIP20.StandardTokenService(web3, token.Address);
                         var accountToken = new AccountToken
                         {
-                            Symbol = token.Symbol
+                            Symbol = token.Symbol,
+                            Balance = await GetTokenBalance(token, accountInfo.Address)
                         };
-                        var wei = await service.GetBalanceOfAsync<BigInteger>(accountInfo.Address);
-                        balance = (decimal)wei / (decimal)Math.Pow(10, token.NumberOfDecimalPlaces);
-                        accountToken.Balance = balance;
+                       
                         accountInfo.AccountTokens.Add(accountToken);
                     }
                 }
@@ -85,20 +95,19 @@ namespace Nethereum.Wallet.Services
             return accountsInfo;
         }
 
-        private List<AccountInfo> AccountInfoInMemoryCache { get; set; }
+        private List<AccountInfo> AccountsInfoInMemoryCache { get; set; }
 
-        public async Task<List<AccountInfo>> GetAccountsInfo(bool forceRefresh=false)
+        public async Task<List<AccountInfo>> GetAllAccountsInfo(bool forceRefresh=false)
         {
-                if (forceRefresh || AccountInfoInMemoryCache == null)
+                if (forceRefresh || AccountsInfoInMemoryCache == null)
                 {
-                    var accountInfo = await RefreshAccountInfo();
+                    var accountInfo = await RefreshAllAccountsInfo();
                     lock (lockingObject)
                     {
-                        AccountInfoInMemoryCache = accountInfo;
+                        AccountsInfoInMemoryCache = accountInfo;
                     }
-                }
-            
-            return AccountInfoInMemoryCache;
+                } 
+            return AccountsInfoInMemoryCache;
         }
 
         public Task<List<WalletTransaction>> GetLatestTransactions()
@@ -110,5 +119,6 @@ namespace Nethereum.Wallet.Services
         {
             return new Web3.Web3(configuration.ClientUrl);
         }
+
     }
 }

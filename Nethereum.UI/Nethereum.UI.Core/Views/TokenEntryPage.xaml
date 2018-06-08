@@ -10,16 +10,16 @@ Title="{Binding Title}" Icon="{Binding Icon}">
     <views:MvxContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Icon="save.png" Text="Save" Priority="0" Command="{Binding SaveTokenCommand}" />
     </views:MvxContentPage.ToolbarItems>
-    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Padding="5">
-        <TableView Intent="Form" Margin="5">
-            <TableRoot>
-                <TableSection>
-                    <EntryCell Label="Name :" HorizontalTextAlignment="Start" Text="{Binding TokenName, Mode=TwoWay}" Placeholder="Token Name" />
-                    <EntryCell Label="Contract Address :"  Text="{Binding TokenAddress, Mode=TwoWay}" Placeholder="Token contract address" />
-                    <EntryCell Label="Symbol :"  Text="{Binding Symbol, Mode=TwoWay}" Placeholder="Token Symbol" />
-                    <EntryCell Label="Decimal Places :"  Text="{Binding DecimalPlaces, Mode=TwoWay}" Placeholder="Token precission, decimal places" />
-                </TableSection>
-            </TableRoot>
-        </TableView>
-    </AbsoluteLayout>
-</views:MvxContentPage>
+    <views:MvxContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Name :" />
+            <Entry HorizontalTextAlignment="Start" Text="{Binding TokenName, Mode=TwoWay}" Placeholder="Token Name" />
+            <Label Text="Contract Address :" />
+            <Entry Text="{Binding TokenAddress, Mode=TwoWay}" Placeholder="Token contract address" />
+            <Label Text="Symbol :" />
+            <Entry  Text="{Binding Symbol, Mode=TwoWay}" Placeholder="Token Symbol" />
+            <Label Text="Decimal Places :" />
+            <Entry Text="{Binding DecimalPlaces, Mode=TwoWay}" Placeholder="Token precission, decimal places" />
+        </StackLayout>
+    </views:MvxContentPage.Content>
+</views:MvxContentPage>    

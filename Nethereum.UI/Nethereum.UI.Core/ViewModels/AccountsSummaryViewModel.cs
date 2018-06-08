@@ -105,7 +105,7 @@ namespace Nethereum.UI.Core.ViewModels
             if (error)
             {
                 var page = new ContentPage();
-                var result = page.DisplayAlert("Error", "Unable to load accounts", "OK");
+                await page.DisplayAlert("Error", "Unable to load accounts", "OK");
             }
 
             IsBusy = false;

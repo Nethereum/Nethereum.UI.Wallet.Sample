@@ -93,6 +93,7 @@ namespace Nethereum.UI.Core.ViewModels
                     TokenImgUrl = ethToken.ImgUrl,
                     TokenName = ethToken.Name
                 });
+
                 foreach (var accountSummary in accountTokenViewModelMapperService.Map(
                     walletSummary.AccountTokens))
                 {
@@ -107,7 +108,7 @@ namespace Nethereum.UI.Core.ViewModels
             if (error)
             {
                 var page = new ContentPage();
-                var result = page.DisplayAlert("Error", "Unable to load token summary", "OK");
+                await page.DisplayAlert("Error", "Unable to load token summary", "OK");
             }
 
             IsBusy = false;
