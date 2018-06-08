@@ -1,28 +1,25 @@
 ﻿using ImageCircle.Forms.Plugin.iOS;
-using MvvmCross.iOS.Views.Presenters;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
-using MvvmCross.iOS.Platform;
+using MvvmCross;
 using UIKit;
 using Xamarin.Forms;
-using MvvmCross.Platform;
 using Nethereum.Wallet.Services;
-using Nethereum.UI.UWP.Services;
 using MvvmCross.Forms.Core;
+using MvvmCross.Forms.Platforms.Ios.Core;
+using MvvmCross.Platforms.Ios.Core;
+using MvvmCross.Platforms.Ios.Presenters;
+using MvvmCross.Presenters;
+using MvvmCross.ViewModels;
+using Nethereum.UI.Core;
 
 namespace Nethereum.UI.iOS
 {
-    public class Setup : MvxIosSetup
+    public class Setup : MvxFormsIosSetup<Core.App, FormsApp>
     {
-        public Setup(MvxApplicationDelegate applicationDelegate, UIWindow window)
-            : base(applicationDelegate, window)
-        {
-        }
-
+       
         protected override void InitializeIoC()
         {
             base.InitializeIoC();
-            Mvx.RegisterSingleton<IWalletConfigurationService>(new WalletConfigurationService());
+            //Mvx.RegisterSingleton<IWalletConfigurationService>(new WalletConfigurationService());
 
         }
 
@@ -31,22 +28,6 @@ namespace Nethereum.UI.iOS
             base.InitializeFirstChance();
 
             Mvx.RegisterSingleton<Core.Services.ILocalizeService>(new Services.LocalizeService());
-        }
-
-        protected override IMvxApplication CreateApp()
-        {
-            return new Core.App();
-        }
-
-        protected override IMvxIosViewPresenter CreatePresenter()
-        {
-            Forms.Init();
-            ImageCircleRenderer.Init();
-            var xamarinFormsApp = new MvxFormsApplication();
-
-           var presenter = new MvxFormsIosShellPagePresenter(Window, xamarinFormsApp);
-           Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
-           return presenter;
         }
     }
 }
