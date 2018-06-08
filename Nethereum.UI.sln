@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.UI.Droid", "Nethe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.UI.iOS", "Nethereum.UI\Nethereum.UI.iOS\Nethereum.UI.iOS.csproj", "{88A375C3-8567-47B7-A040-CF48B7049986}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nethereum.Wallet", "Nethereum.UI\Nethereum.Wallet\Nethereum.Wallet.csproj", "{3C98670B-B8C2-4993-8F18-DDCF0FF580E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Wallet", "Nethereum.UI\Nethereum.Wallet\Nethereum.Wallet.csproj", "{3C98670B-B8C2-4993-8F18-DDCF0FF580E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nethereum.UI.Core", "Nethereum.UI\Nethereum.UI.Core\Nethereum.UI.Core.csproj", "{D705E486-7839-4B9A-AC38-FB1D65DC68CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.UI.Core", "Nethereum.UI\Nethereum.UI.Core\Nethereum.UI.Core.csproj", "{D705E486-7839-4B9A-AC38-FB1D65DC68CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.UI.UWP", "Nethereum.UI\Nethereum.UI.UWP\Nethereum.UI.UWP.csproj", "{DB20308E-8E4C-4ED4-85AF-66DA6354F20D}"
 EndProject

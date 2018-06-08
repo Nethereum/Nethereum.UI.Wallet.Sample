@@ -14,12 +14,12 @@
 	<true/>
 	<key>MinimumOSVersion</key>
 	<string></string>
-  <key>CFBundleLocalizations</key>
-  <array>
-    <string>de</string>
-  </array>
-  <key>CFBundleDevelopmentRegion</key>
-  <string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>de</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -42,5 +42,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleName</key>
+	<string>Nethereum.UI.iOS</string>
 </dict>
 </plist>
