@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:TransactionHistoryViewModel"  
+xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:viewModels="clr-namespace:Nethereum.UI.Core.ViewModels;assembly=Nethereum.UI.Core"
+xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+x:Class="Nethereum.UI.Core.Views.TransactionHistoryPage"
+Title="{Binding Title}" Icon="{Binding Icon}">
+    <views:MvxContentPage.Content>
+        <dg:DataGrid ItemsSource="{Binding Transactions}" SelectionEnabled="False" 
+						 RowHeight="70" HeaderHeight="50" BorderColor="#CCCCCC" HeaderBackground="#414a4c"
+						 PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}"
+						 >
+            <x:Arguments>
+                <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+            </x:Arguments>
+            
+            <dg:DataGrid.Columns>
+                <dg:DataGridColumn Title="Transaction Hash" PropertyName="TransactionHash" Width="100" SortingEnabled="False"/>
+                <dg:DataGridColumn Title="Status" PropertyName="Status" Width="2*"/>
+                
+            </dg:DataGrid.Columns>
+            <dg:DataGrid.RowsBackgroundColorPalette>
+                <dg:PaletteCollection>
+                    <Color>#F2F2F2</Color>
+                    <Color>#FFFFFF</Color>
+                </dg:PaletteCollection>
+            </dg:DataGrid.RowsBackgroundColorPalette>
+        </dg:DataGrid>
+    </views:MvxContentPage.Content>
+</views:MvxContentPage>

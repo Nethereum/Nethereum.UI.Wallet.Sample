@@ -22,6 +22,7 @@ namespace Nethereum.UI.Core.ViewModels
         private readonly IAccountRegistryService _accountRegistryService;
         private readonly ITransactionSenderService _transactionSenderService;
         private readonly IMvxNavigationService _navigationService;
+        private readonly ITransactionHistoryService _transactionHistoryService;
         private ObservableCollection<string> _registeredAccounts;
         private ObservableCollection<ContractToken> _registeredTokens;
 
@@ -31,7 +32,8 @@ namespace Nethereum.UI.Core.ViewModels
             ITokenRegistryService tokenRegistryService,
             IAccountRegistryService accountRegistryService,
             ITransactionSenderService transactionSenderService,
-            IMvxNavigationService navigationService
+            IMvxNavigationService navigationService,
+            ITransactionHistoryService transactionHistoryService
         )
         {
 
@@ -40,6 +42,7 @@ namespace Nethereum.UI.Core.ViewModels
             _accountRegistryService = accountRegistryService;
             _transactionSenderService = transactionSenderService;
             _navigationService = navigationService;
+            _transactionHistoryService = transactionHistoryService;
             _registeredAccounts = new ObservableCollection<string>();
             _registeredTokens = new ObservableCollection<ContractToken>();
 
@@ -254,6 +257,7 @@ namespace Nethereum.UI.Core.ViewModels
 
                         var transactionHash = await
                             _transactionSenderService.SendTransactionAsync(transferFunction, currentToken.Address);
+                        await _transactionHistoryService.AddTransaction(transactionHash);
 
                     }
                     catch(Exception ex)
@@ -265,7 +269,7 @@ namespace Nethereum.UI.Core.ViewModels
                     if (error)
                     {
                         var page = new ContentPage();
-                        await page.DisplayAlert("Error", "Unable to transer token :" + exceptionMessage, "OK");
+                        await page.DisplayAlert("Error", "Unable to transfer token :" + exceptionMessage, "OK");
                     }
 
                     IsBusy = false;

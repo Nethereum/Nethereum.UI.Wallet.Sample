@@ -7,5 +7,6 @@ namespace Nethereum.Wallet.Services
         string ClientUrl { get; set; }
 
         bool IsConfigured();
+        Web3.Web3 GetReadOnlyWeb3();
     }
 }

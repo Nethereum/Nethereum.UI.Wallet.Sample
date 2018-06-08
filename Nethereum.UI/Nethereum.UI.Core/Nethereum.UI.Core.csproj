@@ -19,6 +19,7 @@
     <PackageReference Include="Nethereum.StandardTokenEIP20" Version="2.5.1" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.530893" />
+    <PackageReference Include="Xamarin.Forms.DataGrid" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,9 @@
   <ItemGroup>
     <Compile Update="Views\AccountBalanceSummaryPage.xaml.cs">
       <DependentUpon>AccountBalanceSummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TransactionHistoryPage.xaml.cs">
+      <DependentUpon>TransactionHistoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\TransferTokenPage.xaml.cs">
       <DependentUpon>TransferTokenPage.xaml</DependentUpon>

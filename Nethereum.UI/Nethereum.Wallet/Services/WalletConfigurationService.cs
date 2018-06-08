@@ -13,5 +13,10 @@ namespace Nethereum.Wallet.Services
         {
             return !string.IsNullOrEmpty(ClientUrl);
         }
+
+        public Web3.Web3 GetReadOnlyWeb3()
+        {
+            return new Web3.Web3(ClientUrl);
+        }
     }
 }
