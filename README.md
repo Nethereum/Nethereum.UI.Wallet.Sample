@@ -34,6 +34,9 @@ Demo on the Raspberry PI: https://www.youtube.com/watch?v=bGZhq9oW3Mo (The data 
 * Improve UI / UX
 * Mac, Linux, WPF, TV, Watch samples
 * Continue testing all the platforms 
+* Integrage with the DappHybrid
+* IPFS to load from Dapp application using DappHybrid
+* IPFS / DappHybrid Blazor
 
 ### Other UI samples
 
