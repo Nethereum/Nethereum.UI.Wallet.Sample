@@ -17,17 +17,20 @@ Demo on the Raspberry PI: https://www.youtube.com/watch?v=bGZhq9oW3Mo (The data 
 
 ### Done
 
-* Nethereum.Wallet generic interfaces, summary of balances, accounts, token registry.
+* Nethereum.Wallet generic interfaces, summary of balances, accounts, token registry, token transfer, Transaction history (based on transfers done in the wallet)
+* Mock repository layer
+* Start separation of concerns between Transactions and Reading.
 * Validated usage for common methods, contract, eth.
-* Generic MvxFormsShellPagePresenter for hambuger, slider navigation.
-* Generic UI
+* Generic UI, upgraded now to MVVMCross 6.0
 * Nethereum working and tests on UWP (Windows 10, Windows 10 Phone, Xbox, Raspberry Pi 2), Android and iOS.
- Note: Xbox mouse mode is not implemented yet for uwp in the current xbox dev preview release.
-Note: Pi is rather slow connecting to geth
 
 ### Todo
-* Transfer example.
-* Registry of assets, sql lite storage
-* Screen configuration
-* Transactions storage and watch for registered tokens / eth.
+* Ether Transfer example
+* Load account from KeyStorage, Private key and HDWallet
+* ViewModels to use ReactiveUI, Validation 
+* Akavache
+* Secured storage integration sample
+* Connect to BlockchainStorage / Etherscan
+* Improve UI / UX
+* Mac, Linux, WPF, TV, Watch samples
 * Continue testing all the platforms 
