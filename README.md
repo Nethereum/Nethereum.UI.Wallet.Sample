@@ -34,3 +34,8 @@ Demo on the Raspberry PI: https://www.youtube.com/watch?v=bGZhq9oW3Mo (The data 
 * Improve UI / UX
 * Mac, Linux, WPF, TV, Watch samples
 * Continue testing all the platforms 
+
+### Other UI samples
+
+* Avalonia Desktop https://github.com/Nethereum/Nethereum.UI.Desktop
+* WinForms Dekstop https://github.com/Nethereum/Nethereum.SimpleWindowsWallet
