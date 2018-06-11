@@ -31,6 +31,7 @@ Demo on the Raspberry PI: https://www.youtube.com/watch?v=bGZhq9oW3Mo (The data 
 * Akavache
 * Secured storage integration sample
 * Connect to BlockchainStorage / Etherscan
+* Multi signature support
 * Improve UI / UX
 * Mac, Linux, WPF, TV, Watch samples
 * Continue testing all the platforms 
