@@ -234,7 +234,7 @@ namespace Nethereum.UI.Core.ViewModels
             {
                 var currentToken = RegisteredTokens[SelectedToken.Value];
                 var currentAddres = RegisteredAccounts[SelectedAccountFrom.Value];
-
+                //todo rxui
                 var alertPrompt = new ContentPage();
                 var alertPromptResult = await alertPrompt.DisplayAlert("Token Transfer",
                     "Are you sure you want to transfer, " + Amount + "  " + currentToken.Symbol + " To Address: " +
@@ -268,6 +268,7 @@ namespace Nethereum.UI.Core.ViewModels
 
                     if (error)
                     {
+                        //todo rxui
                         var page = new ContentPage();
                         await page.DisplayAlert("Error", "Unable to transfer token :" + exceptionMessage, "OK");
                     }

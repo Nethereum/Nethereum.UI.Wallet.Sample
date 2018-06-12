@@ -10,7 +10,7 @@ x:Class="Nethereum.UI.Core.Views.TransactionHistoryPage"
 Title="{Binding Title}" Icon="{Binding Icon}">
     <views:MvxContentPage.Content>
         <dg:DataGrid ItemsSource="{Binding Transactions}" SelectionEnabled="False" 
-						 RowHeight="70" HeaderHeight="50" BorderColor="#CCCCCC" HeaderBackground="#414a4c"
+						 RowHeight="70" HeaderHeight="50" Margin="10"  BorderColor="#CCCCCC" HeaderBackground="#414a4c"
 						 PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}"
 						 >
             <x:Arguments>
