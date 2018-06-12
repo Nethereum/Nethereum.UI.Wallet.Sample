@@ -236,10 +236,12 @@ namespace Nethereum.UI.Core.ViewModels
                 var currentAddres = RegisteredAccounts[SelectedAccountFrom.Value];
                 //todo rxui
                 var alertPrompt = new ContentPage();
-                var alertPromptResult = await alertPrompt.DisplayAlert("Token Transfer",
-                    "Are you sure you want to transfer, " + Amount + "  " + currentToken.Symbol + " To Address: " +
-                    ToAddress,
-                    "OK", "Cancel");
+                var alertPromptResult = true;
+
+                    //await alertPrompt.DisplayAlert("Token Transfer",
+                    //"Are you sure you want to transfer, " + Amount + "  " + currentToken.Symbol + " To Address: " +
+                    //ToAddress,
+                    //"OK", "Cancel");
 
                 if (alertPromptResult)
                 {

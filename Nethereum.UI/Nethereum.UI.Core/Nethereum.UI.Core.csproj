@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+netcore45+wpa81+MonoAndroid10+Xamarin.iOS10</PackageTargetFallback>
+    <AssetTargetFallback>$(PackageTargetFallback);portable-net45+netcore45+wpa81+MonoAndroid10+Xamarin.iOS10</AssetTargetFallback>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -39,12 +39,6 @@
     <Compile Update="Views\TokenEntryPage.xaml.cs">
       <DependentUpon>TokenEntryPage.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Views\RootPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -30,7 +30,15 @@ namespace Nethereum.UI.Core
             //}
 
             // register the appstart object
-            RegisterCustomAppStart<AppStart<RootViewModel>>();
+            if (Device.RuntimePlatform == Device.macOS)
+            {
+                RegisterCustomAppStart<AppStart<MenuViewModel>>();
+            }
+            else
+            {
+                RegisterCustomAppStart<AppStart<RootViewModel>>();
+            }
+
 
 
         }
