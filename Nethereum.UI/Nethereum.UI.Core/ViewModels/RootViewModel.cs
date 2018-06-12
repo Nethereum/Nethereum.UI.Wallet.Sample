@@ -12,11 +12,17 @@ namespace Nethereum.UI.Core.ViewModels
             _navigationService = navigationService;
         }
 
+        public override void Start()
+        {
+            base.Start();
+            MvxNotifyTask.Create(async () => await this.InitializeViewModels());
+        }
+
         public override void ViewAppearing()
         {
             base.ViewAppearing();
 
-            MvxNotifyTask.Create(async () => await this.InitializeViewModels());
+            //MvxNotifyTask.Create(async () => await this.InitializeViewModels());
         }
 
         private async Task InitializeViewModels()

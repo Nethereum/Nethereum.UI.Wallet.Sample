@@ -20,9 +20,9 @@ namespace Nethereum.UI.Core.ViewModels
         private ShellMenuItem selectedMenuItem;
     
 
-        public MenuViewModel(IMvxMessenger messenger, IHomeMenuService homeMenuService, IMvxNavigationService navigationService)
+        public MenuViewModel(IHomeMenuService homeMenuService, IMvxNavigationService navigationService)
         {
-            this.messenger = messenger;
+            //this.messenger = messenger;
             this.homeMenuService = homeMenuService;
             this.navigationService = navigationService;
         }

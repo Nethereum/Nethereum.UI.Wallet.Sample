@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <views:MvxMasterDetailPage x:TypeArguments="viewModels:RootViewModel"
                       xmlns="http://xamarin.com/schemas/2014/forms" 
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
                       xmlns:viewModels="clr-namespace:Nethereum.UI.Core.ViewModels;assembly=Nethereum.UI.Core"
-                   
-                        x:Class="Nethereum.UI.Core.Views.RootPage">
+                      x:Class="Nethereum.UI.Core.Views.RootPage" Title="Nethereum Wallet">
 </views:MvxMasterDetailPage>
