@@ -1,8 +1,9 @@
-﻿using MvvmCross.ViewModels;
+﻿using MvvmCross.ReactiveUI.Interop;
+using MvvmCross.ViewModels;
 
 namespace Nethereum.UI.Core.ViewModels
 {
-    public class BaseViewModel<TParam> : MvxViewModel<TParam>, IBaseViewModel
+    public class BaseViewModel<TParam> : MvxReactiveViewModel<TParam>, IBaseViewModel
     {
         protected TParam Parameter { get; set; }
 
@@ -21,8 +22,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return icon; }
             set
             {
-                icon = value;
-                RaisePropertyChanged(() => Icon);
+                this.RaiseAndSetIfChanged(ref icon, value);
             }
         }
 
@@ -31,8 +31,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return title; }
             set
             {
-                title = value;
-                RaisePropertyChanged(() => Title);
+                this.RaiseAndSetIfChanged(ref title, value);
             }
         }
 
@@ -41,14 +40,13 @@ namespace Nethereum.UI.Core.ViewModels
             get { return isBusy; }
             set
             {
-                isBusy = value;
-                RaisePropertyChanged(() => IsBusy);
+                this.RaiseAndSetIfChanged(ref isBusy, value);
             }
         }
     }
 
 
-    public class BaseViewModel : MvxViewModel, IBaseViewModel
+    public class BaseViewModel : MvxReactiveViewModel, IBaseViewModel
     {
         private string icon;
         private bool isBusy;
@@ -60,8 +58,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return icon; }
             set
             {
-                icon = value;
-                RaisePropertyChanged(() => Icon);
+                this.RaiseAndSetIfChanged(ref icon, value);
             }
         }
 
@@ -70,8 +67,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return title; }
             set
             {
-                title = value;
-                RaisePropertyChanged(() => Title);
+                this.RaiseAndSetIfChanged(ref title, value);
             }
         }
 
@@ -80,8 +76,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return isBusy; }
             set
             {
-                isBusy = value;
-                RaisePropertyChanged(() => IsBusy);
+                this.RaiseAndSetIfChanged(ref isBusy, value);
             }
         }
     }

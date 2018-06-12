@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Nethereum.Wallet.Model;
+using ReactiveUI;
 
 namespace Nethereum.UI.Core.ViewModels
 {
@@ -11,21 +12,13 @@ namespace Nethereum.UI.Core.ViewModels
         public string Symbol
         {
             get { return symbol; }
-            set
-            {
-                symbol = value;
-                RaisePropertyChanged(() => Symbol);
-            }
+            set { this.RaiseAndSetIfChanged(ref symbol, value); }
         }
 
         public decimal Balance
         {
             get { return balance; }
-            set
-            {
-                balance = value;
-                RaisePropertyChanged(() => Balance);
-            }
+            set { this.RaiseAndSetIfChanged(ref balance, value); }
         }
 
         public string TokenName
@@ -33,8 +26,8 @@ namespace Nethereum.UI.Core.ViewModels
             get { return tokenName; }
             set
             {
-                tokenName = value;
-                RaisePropertyChanged(() => TokenName);
+                this.RaiseAndSetIfChanged(ref tokenName, value);
+
             }
         }
 
@@ -43,8 +36,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return tokenImgUrl; }
             set
             {
-                tokenImgUrl = value;
-                RaisePropertyChanged(() => TokenImgUrl);
+                this.RaiseAndSetIfChanged(ref tokenImgUrl, value);
             }
         }
 

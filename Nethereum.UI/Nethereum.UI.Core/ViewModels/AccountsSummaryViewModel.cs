@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
 using Nethereum.UI.Core.Services;
 using Nethereum.UI.Core.Views;
 using Nethereum.Wallet.Services;
@@ -37,8 +38,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return accountsSummary; }
             set
             {
-                accountsSummary = value;
-                RaisePropertyChanged(() => AccountsSummary);
+                this.RaiseAndSetIfChanged(ref accountsSummary, value);
             }
         }
 
@@ -47,8 +47,7 @@ namespace Nethereum.UI.Core.ViewModels
             get { return selectedAccount; }
             set
             {
-                selectedAccount = value;
-                RaisePropertyChanged(() => SelectedAccount);
+                this.RaiseAndSetIfChanged(ref selectedAccount, value);
                 if(selectedAccount != null)
                 ShowSelectedAccountCommand.Execute(null);
             }

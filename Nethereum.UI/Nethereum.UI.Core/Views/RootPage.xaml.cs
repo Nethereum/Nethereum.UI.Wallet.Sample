@@ -11,7 +11,6 @@ using Xamarin.Forms.Xaml;
 
 namespace Nethereum.UI.Core.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     [MvxMasterDetailPagePresentation(MasterDetailPosition.Root, WrapInNavigationPage = false)]
     public partial class RootPage : MvxMasterDetailPage<RootViewModel>
     {

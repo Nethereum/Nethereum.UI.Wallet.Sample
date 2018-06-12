@@ -1,3 +1,5 @@
+using ReactiveUI;
+
 namespace Nethereum.UI.Core.ViewModels
 {
     public class AccountSummaryViewModel : BaseViewModel
@@ -9,9 +11,8 @@ namespace Nethereum.UI.Core.ViewModels
             get { return address; }
             set
             {
-                address = value;
+                this.RaiseAndSetIfChanged(ref address, value);
                 ImgUrl = AddressToGravatar.GetImgUrl(address);
-                RaisePropertyChanged(() => Address);
             }
         }
 
@@ -19,18 +20,13 @@ namespace Nethereum.UI.Core.ViewModels
         public string ImgUrl
         {
             get { return imgUrl; }
-            set { imgUrl = value; RaisePropertyChanged(() => ImgUrl); }
+            set { this.RaiseAndSetIfChanged(ref imgUrl, value); }
         }
 
         public string BalanceSummary
         {
             get { return balanceSummary; }
-            set
-            {
-                balanceSummary = value;
-              
-                RaisePropertyChanged(() => BalanceSummary);
-            }
+            set { this.RaiseAndSetIfChanged(ref balanceSummary, value); }
         }
 
         private string balanceSummary;

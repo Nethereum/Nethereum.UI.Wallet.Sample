@@ -25,7 +25,7 @@ Title="{Binding Title}" Icon="{Binding Icon}">
             <Label Text="Gas Price (Gwei):" />
             <Entry Text="{Binding GasPrice, Mode=TwoWay}" Placeholder="Gas Price (GWei)" />
 
-            <Button  HorizontalOptions="Center" Margin="5" Text="Transfer" Command="{Binding TransferTokenCommand}" />
+            <Button  HorizontalOptions="Center" Margin="5" Text="Transfer" Command="{Binding ExecuteTransactionCommand}" />
         </StackLayout>
     </views:MvxContentPage.Content>
 </views:MvxContentPage>

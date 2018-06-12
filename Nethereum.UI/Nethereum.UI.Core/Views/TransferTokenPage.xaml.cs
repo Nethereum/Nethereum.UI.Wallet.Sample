@@ -13,7 +13,24 @@ namespace Nethereum.UI.Core.Views
         public TransferTokenPage()
         {
             InitializeComponent();
+                
         }
 
+        protected override void OnViewModelSet()
+        {
+            this.ViewModel
+                .ConfirmTransfer
+                .RegisterHandler(
+                    async interaction =>
+                    {
+                        var sendToken = await this.DisplayAlert(
+                            "Confirm Send Token",
+                             interaction.Input,
+                            "YES",
+                            "NO");
+
+                        interaction.SetOutput(sendToken);
+                    });
+        }
     }
 }
