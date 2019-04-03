@@ -43,3 +43,6 @@ Demo on the Raspberry PI: https://www.youtube.com/watch?v=bGZhq9oW3Mo (The data 
 
 * Avalonia Desktop https://github.com/Nethereum/Nethereum.UI.Desktop
 * WinForms Dekstop https://github.com/Nethereum/Nethereum.SimpleWindowsWallet
+
+
+Note: in this sample, a special INFURA API key is used: `7238211010344719ad14a89db874158c`. If you wish to use this sample in your own project you’ll need to [sign up on INFURA](https://infura.io/register) and use your own key.
