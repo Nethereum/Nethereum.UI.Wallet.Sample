@@ -13,7 +13,8 @@ namespace Nethereum.UI.Droid.Services
 
     //    public WalletConfigurationService()
     //    {
-    //        this.ClientUrl = "https://mainnet.infura.io/";
+// Note: in this sample, a special INFURA API key is used: `7238211010344719ad14a89db874158c`. If you wish to use this sample in your own project you’ll need to [sign up on INFURA](https://infura.io/register) and use your own key.
+    //        this.ClientUrl = "https://mainnet.infura.io/v3/7238211010344719ad14a89db874158c";
     //        this.Client = new RpcClient(new Uri(ClientUrl));
     //    }
 
